@@ -1,0 +1,16 @@
+Created a new environment (carpredict) -- 3.7
+Working directory (launched jupyter notebook)
+
+**Error Solve** Error: Traceback (most recent call last): File "app.py", line 9, in <module> model = pickle.load(open('random_forest_regression_model.pkl', 'rb')) 
+EOFError: Ran out of input **Solution:** 
+Step1: Remove pickle Code from jupyter notebook: ---------------------------------------------------------------------- 
+import pickle # open a file, where you ant to store the data file = open('random_forest_regression_model.pkl', 'wb') 
+# dump information to that file pickle.dump(rf_random, file) 
+Step2: Write joblib code in jupyter notebook ----------------------------------------------------------- 
+from joblib import dump, load dump(rf_random, 'regression_model.joblib') 
+Step3: Remove pickle Code from app.py in spyder --------------------------------------------------------------------- 
+model = pickle.load(open('random_forest_regression_model_1.pkl', 'rb')) 
+Step4: Write joblib code in app.py in spyder ---------------------------------------------------------- 
+model = load('regression_model.joblib') 
+Step5: Write in Conda Prompt • pip install joblib 
+Step6: Create requirements file in Conda Prompt • Pip3 freeze > requirements.txt
